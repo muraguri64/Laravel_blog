@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//for sending mail
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
+
+
 use App\Http\Requests;
 use App\Post;
 class PagesController extends Controller
