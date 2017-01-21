@@ -23,4 +23,24 @@ class PagesController extends Controller
    		return view('pages.contact');
 
     }
+
+    public function postContact(Request $request){
+
+        //validate data
+        $this->validate($request,array(
+            'name'        =>'required|min:2|max:255',
+            'email'       =>'required|email',
+            'subject'     =>'required|min:3|max:255',
+            'message_send'=>'required|min:10'       
+        ));
+
+        $quickbyte_mail = "quickbytekenya@gmail.com";
+
+        //actually send the email
+         Mail::to($quickbyte_mail)->send(new ContactMail($request->email,$request->name,$request->subject,$request->message_send));     
+
+         return response()->json([
+                'success' => true                                                 
+            ]);         
+    }
 }
