@@ -1,4 +1,4 @@
-https://github.com/muraguri64/laravel-blog
+https://github.com/muraguri64/laravel_blog
 
 # How To Build a (Basic) Blog Management System with Laravel
 
