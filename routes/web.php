@@ -15,6 +15,7 @@ Route::get('/','PagesController@getIndex');
 Route::get('blog',['uses'=>'BlogController@getIndex','as'=>'blog.index']);
 Route::get('blog/{id}',['as'=>'blog.single','uses'=>'BlogController@getSingle']);
 Route::get('contact','PagesController@getContact');
+Route::post('contact','PagesController@postContact');
 Route::get('about','PagesController@getAbout');
 
 //resoures for posts and  categories and tags
