@@ -2,27 +2,30 @@
 @section('title','| Contact')
 @section('content')
 <div class="row">
-	<div class="col-md-12">
-		<h1>Contact Me</h1><hr>
-		<form>
-			<div class="form-group">
-				<label name="email">Email:</label>
-				<input id="email" name="email" class="form-control">
-			</div><!--end of form group-->
+	<div class="col-md-8 col-md-offset-2">
+		<div class="panel panel-default">		    
+		    <div class="panel-body">
+		     	{!! Form::open(['url' => 'contact']) !!}
+					<center><h2>Get in touch below</h2></center><hr>
 
-			<div class="form-group">
-				<label name="subject">Subject:</label>
-				<input id="subject" name="subject" class="form-control">
-			</div><!--end of form group-->
+					{{Form::label('name','Your name:',array('class' => 'form-spacing-top'))}}<span><i> (required)</i></span>
+					{{Form::text('name',null,array('class'=>'form-control','required'=>'','maxlength'=>'255'))}}
 
-			<div class="form-group">
-				<label name="message">Message:</label>
-				<textarea id="message" name="message" placeholder="Type your message here....." class="form-control"></textarea>
-			</div><!--end of form group-->
+					{{Form::label('email','Email:',array('class' => 'form-spacing-top'))}}<span><i> (required)</i></span>
+					{{Form::email('email',null,array('class'=>'form-control','required'=>'','maxlength'=>'255'))}}
 
-			<input type="submit" value="Send Message" class="btn btn-success">
+					{{Form::label('subject','Subject:',array('class' => 'form-spacing-top'))}}<span><i> (required)</i></span>
+					{{Form::text('subject',null,array('class'=>'form-control','required'=>'','maxlength'=>'255'))}}
 
-		</form>
+					{{Form::label('message_send','Message',array('class' => 'form-spacing-top'))}}<span><i> (required)</i></span>
+					{{Form::textarea('message_send',null,array('class'=>'form-control','required'=>'','rows'=>'5'))}}
+
+					 <br/>
+					  {{Form::submit('Submit',array('class'=>'btn btn-primary btn-lg btn-block'))}}
+
+				{!!Form::close()!!}	
+			</div><!--end of panel body-->
+		</div><!--end of panel default-->
 	</div>
 </div>
 @endsection
